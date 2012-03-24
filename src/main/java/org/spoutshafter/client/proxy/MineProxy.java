@@ -10,7 +10,10 @@ import java.net.BindException;
 
 public class MineProxy extends Thread {
 	public static String authServer;
+	public float version = 0;
+	private int port = -1;
 	
+	// Patterns
 	public static Pattern SKIN_URL = Pattern.compile("http://s3\\.amazonaws\\.com/MinecraftSkins/(.+?)\\.png");
 	public static Pattern CLOAK_URL = Pattern.compile("http://s3\\.amazonaws\\.com/MinecraftCloaks/(.+?)\\.png");
 	public static Pattern GETVERSION_URL = Pattern.compile("http://session\\.minecraft\\.net/game/getversion\\.jsp");
@@ -22,9 +25,7 @@ public class MineProxy extends Thread {
 	public static Pattern DL_TECHNIC_URL_2 = Pattern.compile("http://technicpack.net/(.+?)");
 	//public static Pattern LOGIN_URL = Pattern.compile("login\\.minecraft\\.net/");
 	
-	public float version = 0;
-	private int port = -1;
-	
+	/* NTS: See if this is still needed */
 	public Hashtable<String, byte[]> skinCache;
 	public Hashtable<String, byte[]> cloakCache;
 	
@@ -34,7 +35,6 @@ public class MineProxy extends Thread {
 		
 		try {
 			this.version = version;
-			
 			this.skinCache = new Hashtable<String, byte[]>();
 			this.cloakCache = new Hashtable<String, byte[]>();
 		} catch(Exception e) {
