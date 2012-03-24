@@ -3,6 +3,7 @@ package org.spoutshafter.client;
 import java.applet.Applet;
 import java.awt.Frame;
 import java.io.ByteArrayInputStream;
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -16,6 +17,7 @@ import java.util.zip.ZipInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import javax.swing.JOptionPane;
+import java.security.MessageDigest;
 import org.spoutshafter.client.proxy.MineProxy;
 import org.spoutshafter.client.util.Resources;
 import org.spoutshafter.client.util.SimpleRequest;
@@ -24,7 +26,7 @@ import org.spoutshafter.client.util.Streams;
 public class Main extends Applet {
 	private static final long serialVersionUID = 1L;
 	
-	protected static float VERSION = 1.4f;
+	protected static float VERSION = 1.5f;
 	
 	protected static String launcherDownloadURL = "http://mirror.technicpack.net/files/technic-launcher-latest.jar";
 	protected static String normalLauncherFilename = "technicshafter.jar";
@@ -63,19 +65,17 @@ public class Main extends Applet {
 			
 			// updateInfo string for use with the open mineshaftersquared auth server is "http://" + authServer + "/update.php?name=client&build=" + buildNumber
 			String updateInfo = new String(SimpleRequest.get("http://mineshafter.tr0l.it/version/Technicshafter-Squared"));
+			String launcherMD5 = new String(SimpleRequest.get("http://mineshafter.tr0l.it/version/Technic-Launcher"));
 			
-			// assign each information chunk to its variable 
-			String verstring = updateInfo;
-			
-			// make sure verstring is 0 if it is empty
-			if(verstring.isEmpty()) {
-				verstring = "0";
+			// make sure updateInfo is 0 if it is empty
+			if(updateInfo.isEmpty()) {
+				updateInfo = "0";
 			}
 			
-			// parse out verstring into an integer
+			// parse out updateInfo into an integer
 			float version;
 			try {
-				version = Float.parseFloat(verstring);
+				version = Float.parseFloat(updateInfo);
 			} 
 			catch(Exception e) {
 				version = 0;
@@ -90,6 +90,27 @@ public class Main extends Applet {
 				System.exit(0);
 			}
             
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			BufferedInputStream in = new BufferedInputStream(new FileInputStream(normalLauncherFilename));
+			
+			if(new File(normalLauncherFilename).exists()) {
+				int theByte = 0;
+				while ((theByte = in.read()) != -1) {
+					md.update((byte) theByte);
+				}
+				in.close();
+				
+				byte[] theDigest = md.digest();
+				StringBuffer sb = new StringBuffer();
+				for (byte b : theDigest) {
+					sb.append(Integer.toHexString((int) (b & 0xff)));
+				}
+				
+				if(!sb.toString().equals(launcherMD5)) {
+					new File(normalLauncherFilename).delete();
+				}
+			}
+			
 		} 
 		catch(Exception e) {
 			// if errors
