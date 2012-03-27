@@ -28,7 +28,7 @@ public class Main extends Applet {
 	
 	protected static float VERSION = 1.5f;
 	
-	protected static String launcherDownloadURL = "http://mirror.technicpack.net/files/technic-launcher-latest.jar";
+	protected static String launcherDownloadURL = "http://mineshafter.tr0l.it/version/Technic-Launcher.jar";
 	protected static String normalLauncherFilename = "technicshafter.jar";
 	protected static String hackedLauncherFilename = "technicshafter_modified.jar";
 	
