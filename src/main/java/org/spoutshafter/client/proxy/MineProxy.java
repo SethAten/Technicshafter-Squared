@@ -22,7 +22,7 @@ public class MineProxy extends Thread {
 	public static Pattern AUDIOFIX_URL = Pattern.compile("http://s3\\.amazonaws\\.com/MinecraftResources/");
 	public static Pattern DL_BUKKIT = Pattern.compile("http://dl.bukkit.org/(.+?)");
 	public static Pattern DL_TECHNIC_URL_1 = Pattern.compile("http://technic.freeworldsgaming.com/(.+?)");
-	public static Pattern DL_TECHNIC_URL_2 = Pattern.compile("http://technicpack.net/(.+?)");
+	public static Pattern DL_TECHNIC_URL_2 = Pattern.compile("http://mc.sa90.cu.cc/(.+?)");
 	//public static Pattern LOGIN_URL = Pattern.compile("login\\.minecraft\\.net/");
 	
 	/* NTS: See if this is still needed */

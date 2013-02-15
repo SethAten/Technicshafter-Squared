@@ -26,11 +26,11 @@ import org.spoutshafter.client.util.Streams;
 public class Main extends Applet {
 	private static final long serialVersionUID = 1L;
 	
-	protected static float VERSION = 1.6f;
+	protected static float VERSION = 1.7f;
 	
-	protected static String launcherDownloadURL = "http://mineshafter.tr0l.it/version/Technic-Launcher.jar";
-	protected static String normalLauncherFilename = "technicshafter.jar";
-	protected static String hackedLauncherFilename = "technicshafter_modified.jar";
+	protected static String launcherDownloadURL = "http://mc.sa90.cu.cc/sa90launcher.jar";
+	protected static String normalLauncherFilename = "sa90launcher.jar";
+	protected static String hackedLauncherFilename = "sa90launcher_modified.jar";
 	
 	protected static String MANIFEST_TEXT = "Manifest-Version: 1.2\nCreated-By: 1.6.0_22 (Sun Microsystems Inc.)\nMain-Class: org.spoutcraft.launcher.Main\n";
 	
@@ -64,8 +64,8 @@ public class Main extends Applet {
 			Main.hackedLauncherFilename = mineshaftersquaredPath + Main.hackedLauncherFilename;
 			
 			// updateInfo string for use with the open mineshaftersquared auth server is "http://" + authServer + "/update.php?name=client&build=" + buildNumber
-			String updateInfo = new String(SimpleRequest.get("http://mineshafter.tr0l.it/version/Technicshafter-Squared"));
-			String launcherMD5 = new String(SimpleRequest.get("http://mineshafter.tr0l.it/version/Technic-Launcher"));
+			String updateInfo = new String(SimpleRequest.get("http://mc.sa90.cu.cc/version/Technicshafter-Squared"));
+			String launcherMD5 = new String(SimpleRequest.get("http://mc.sa90.cu.cc/version/Technic-Launcher"));
 			
 			// make sure updateInfo is 0 if it is empty
 			if(updateInfo.isEmpty()) {
@@ -86,7 +86,7 @@ public class Main extends Applet {
 			System.out.println("Gotten proxy version: " + version);
 			
 			if(VERSION < version) {
-				JOptionPane.showMessageDialog(null, "A new version of Technicshafter Squared is available at http://mineshafter.tr0l.it\nGo get it.", "Update Available", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(null, "A new version of sa90shafter Squared is available at http://mc.sa90.cu.cc\nGo get it.", "Update Available", JOptionPane.PLAIN_MESSAGE);
 				System.exit(0);
 			}
             
@@ -231,17 +231,17 @@ public class Main extends Applet {
         	basePath = enviornment.get("APPDATA");
             paths[0] = basePath + "\\.minecraft\\bin";
             paths[1] = paths[0] + "\\version";
-            paths[2] = basePath + "\\.technicshaftersquared\\";
+            paths[2] = basePath + "\\.sa90shaftersquared\\";
         } else if (os.contains("mac")) {
         	basePath = "/Users/" + enviornment.get("USER") + "/Library/Application Support";
         	paths[0] = basePath + "/minecraft/bin";
         	paths[1] = paths[0] + "/version";
-        	paths[2] = basePath + "/technicshaftersquared/";
+        	paths[2] = basePath + "/sa90shaftersquared/";
         } else if(os.contains("linux")){
         	basePath = enviornment.get("HOME");
         	paths[0] = basePath+ "/.minecraft/bin";
         	paths[1] = paths[0] + "/version";
-        	paths[2] = basePath + "/.technicshaftersquared/";
+        	paths[2] = basePath + "/.sa90shaftersquared/";
         }
         
         return paths;
