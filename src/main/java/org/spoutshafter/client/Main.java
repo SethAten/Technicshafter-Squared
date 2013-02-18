@@ -28,9 +28,9 @@ public class Main extends Applet {
 	
 	protected static float VERSION = 1.7f;
 	
-	protected static String launcherDownloadURL = "http://mc.sa90.cu.cc/sa90launcher.jar";
-	protected static String normalLauncherFilename = "sa90launcher.jar";
-	protected static String hackedLauncherFilename = "sa90launcher_modified.jar";
+	protected static String launcherDownloadURL = "http://mc.sa90.cu.cc/creeperlauncher.jar";
+	protected static String normalLauncherFilename = "creeperlauncher.jar";
+	protected static String hackedLauncherFilename = "creeperlauncher_modified.jar";
 	
 	protected static String MANIFEST_TEXT = "Manifest-Version: 1.2\nCreated-By: 1.6.0_22 (Sun Microsystems Inc.)\nMain-Class: org.spoutcraft.launcher.Main\n";
 	

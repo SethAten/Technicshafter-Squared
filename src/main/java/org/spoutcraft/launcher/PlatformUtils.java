@@ -31,7 +31,7 @@ import javax.swing.JProgressBar;
 
 public class PlatformUtils {
 
-	public static final String	LAUNCHER_DIR	= "sa90launcher";
+	public static final String	LAUNCHER_DIR	= "creeperlauncher";
 	public static boolean portable = false;
 	private static File					workDir				= null;
 
