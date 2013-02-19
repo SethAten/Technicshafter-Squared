@@ -127,7 +127,7 @@ public class Main {
 		boolean relaunch = false;
 		try {
 			if (!recursion.exists()) {
-				relaunch = false;
+				relaunch = true;
 			} else {
 				recursion.delete();
 			}
@@ -159,7 +159,8 @@ public class Main {
 		}
 		PlatformUtils.getWorkingDirectory().mkdirs();
 		new File(PlatformUtils.getWorkingDirectory(), "launcher").mkdir();
-
+		System.setProperty("java.net.preferIPv4Stack" , "true");
+		System.setProperty("java.net.preferIPv6Stack" , "false");
 		SystemConsoleListener listener = new SystemConsoleListener();
 
 		listener.initialize();

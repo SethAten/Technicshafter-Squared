@@ -136,7 +136,7 @@ public class MineProxyHandler extends Thread {
 			} else {
 				//url = "http://" + MineProxy.authServer + "/cloak/get.jsp?user=" + username;
 				//url = "http://" + MineProxy.authServer + "/game/getcloak.php?user=" + username;
-				url = "http://" + MineProxy.authServer + "/getcloak/" + username;
+				url = "http://" + MineProxy.authServer + "/getcloak/" + username +".png";
 				
 				System.out.println("To: " + url);
 				
@@ -178,7 +178,7 @@ public class MineProxyHandler extends Thread {
 			
 			params = joinserverMatcher.group(1);
 			//url = "http://" + MineProxy.authServer + "/game/joinserver.php" + params;
-			url = "http://" + MineProxy.authServer + "/game/joinserver" + params;
+			url = "http://" + MineProxy.authServer + "/game/join_server" + params;
 			System.out.println("To: " + url);
 			data = getRequest(url);
 			System.out.println(data);
@@ -189,7 +189,7 @@ public class MineProxyHandler extends Thread {
 			
 			params = checkserverMatcher.group(1);
 			//url = "http://" + MineProxy.authServer + "/game/checkserver.php" + params;
-			url = "http://" + MineProxy.authServer + "/game/checkserver" + params;
+			url = "http://" + MineProxy.authServer + "/game/check_server" + params;
 			System.out.println("To: " + url);
 			data = getRequest(url);
 			System.out.println(data);
